@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/main">
+
+    <fragment
+        android:id="@+id/main"
+        android:name="com.mazaady.task.presentation.fragments.main.MainFragment"
+        android:label="Categories"
+        tools:layout="@layout/fragment_main" >
+
+        <action
+            android:id="@+id/action_main_to_auction_details"
+            app:destination="@id/auction_details" />
+    </fragment>
+    <fragment
+        android:id="@+id/auction_details"
+        android:name="com.mazaady.task.presentation.fragments.auctionDetails.AuctionFragment"
+        android:label="Auction Details"
+        tools:layout="@layout/fragment_auction_details" >
+
+        <action
+            android:id="@+id/action_auction_details_to_main"
+            app:destination="@id/main" />
+    </fragment>
+</navigation>

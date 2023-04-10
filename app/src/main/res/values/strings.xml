@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Auction</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="insert_user_details">User Details</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="job_title">Job Title</string>
+    <string name="save_user_details">Save</string>
+    <string name="text_validation_success">Success</string>
+    <string name="text_validation_error_empty_field">Empty Field</string>
+    <string name="name_empty">Name Empty</string>
+    <string name="age_empty">Age Empty</string>
+    <string name="jobTitle_empty">Job Title Empty</string>
+    <string name="select_gender">Select Gender</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="main_category">Main Category</string>
+    <string name="sub_category">Sub Category</string>
+    <string name="process_type">Process Type</string>
+    <string name="submit">Submit</string>
+    <string name="speacify_here">Speacify Here</string>
+    <string name="day">Day</string>
+    <string name="hour">Hour</string>
+    <string name="minute">Minute</string>
+    <string name="units">day         hour      minute</string>
+    <string name="aution_name">المزاد يبدأ بعد</string>
+    <string name="current_auction_value">القيمة الحالية للمزاد</string>
+    <string name="current_aucvalue_tax">القيمة الحالية بعد الضريبة</string>
+    <string name="search">Search</string>
+    <string name="select_category">Select Category</string>
+    <string name="property">Property</string>
+    <string name="second_screen">Second Screen</string>
+
+    <string-array name="gender">
+        <item>Select Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+
+    </string-array>
+</resources>
