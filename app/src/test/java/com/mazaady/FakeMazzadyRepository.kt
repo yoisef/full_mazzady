@@ -14,6 +14,15 @@ class FakeMazzadyRepository : MainRepo {
 
     private val _categories = MutableStateFlow<List<Category>>(arrayListOf())
 
+    private val categoriesItems = mutableListOf<Category>()
+
+    private val tasks= MutableStateFlow<List<Category>?>(categoriesItems)
+
+    private var shouldReturnNetworkError = false
+
+    fun setShouldReturnNetworkError(value: Boolean) {
+        shouldReturnNetworkError = value
+    }
 
 
     override fun getMainCategories(): Flow<MainResponse<CatData>> {

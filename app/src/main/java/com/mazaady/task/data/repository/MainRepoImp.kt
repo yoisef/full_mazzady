@@ -12,7 +12,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MainRepoImp @Inject constructor( val endPoint: EndPoint?) : MainRepo {
+ public class MainRepoImp @Inject constructor( val endPoint: EndPoint?) : MainRepo {
 
 
 

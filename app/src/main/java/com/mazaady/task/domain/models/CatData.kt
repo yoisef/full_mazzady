@@ -5,6 +5,6 @@ data class CatData(
     val categories: List<Category>,
     val google_version: String,
     val huawei_version: String,
-    val ios_version: String,
+    val ios_version: String?,
     val statistics: Statistics
 )

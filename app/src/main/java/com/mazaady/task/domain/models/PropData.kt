@@ -5,7 +5,7 @@ data class PropData(
     val id: Int,
     val list: Boolean,
     val name: String,
-    val options: MutableList<Option>,
+    var options: MutableList<Option>,
     var childOptions: MutableList<Option>?=null,
 
     var selectedOption: Option?=null,
