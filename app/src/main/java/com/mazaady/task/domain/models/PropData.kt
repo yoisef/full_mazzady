@@ -10,7 +10,7 @@ data class PropData(
 
     var selectedOption: Option?=null,
 
-    val other_value: Any,
+    var other_value: String,
     val parent: Int,
     val slug: String,
     val type: String,

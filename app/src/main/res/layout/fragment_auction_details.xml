@@ -43,7 +43,6 @@
             <com.smarteist.autoimageslider.SliderView
                 android:id="@+id/imageSlider"
                 android:layout_width="match_parent"
-                android:background="@drawable/elantra"
 
 
                 android:layout_height="230dp"

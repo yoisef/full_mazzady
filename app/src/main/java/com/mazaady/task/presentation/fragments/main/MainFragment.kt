@@ -129,7 +129,7 @@ class MainFragment : Fragment(), Property ,ICategory{
 
                         mAdapter.updateDayListItems(properties)
 
-                        binding.recyclerProperties.adapter
+                        binding.recyclerProperties.adapter=mAdapter
 
                     }
                     Status.ERROR ->{
@@ -149,6 +149,7 @@ class MainFragment : Fragment(), Property ,ICategory{
 
         }
 
+
         //obsever options
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.getOptionsChild.collect{
@@ -157,6 +158,7 @@ class MainFragment : Fragment(), Property ,ICategory{
                 {
                     Status.SUCCESS ->{
                         binding.progressBar.visibility=View.GONE
+
                         properties.filter { prop -> prop.slug==newProperty.data!!.data[0].slug }
                             .let {
                                 if (it.isNotEmpty())
@@ -185,6 +187,8 @@ class MainFragment : Fragment(), Property ,ICategory{
             }
 
         }
+
+
     }
     private fun initialization()
     {
@@ -209,14 +213,18 @@ class MainFragment : Fragment(), Property ,ICategory{
         binding.inputEditTextMainCategory.setOnClickListener {
 
 
-            showBottomSheetCategories(listCategories,resources.getString(R.string.main_category))
+            if (listCategories.isNotEmpty())
+            {
+                showBottomSheetCategories(listCategories,resources.getString(R.string.main_category))
+
+            }
 
         }
 
         // on Click On SubCategory
         binding.inputEditTextSubCategory.setOnClickListener {
 
-            if (listSubcategories!=null)
+            if (listSubcategories?.isNotEmpty() == true)
             {
                 showBottomSheetCategories(listSubcategories!!,resources.getString(R.string.sub_category))
 
@@ -303,6 +311,7 @@ class MainFragment : Fragment(), Property ,ICategory{
     private fun showBottomSheetProperty(property : PropData) {
 
 
+
         propertyName.text = property.slug
 
 
@@ -318,7 +327,8 @@ class MainFragment : Fragment(), Property ,ICategory{
 
         }
 
-        property.options.filter { option -> option.name.equals("other") }.apply {
+
+        property.options.filter { option -> option.name == "other" }.apply {
             if (this.isEmpty()) {
                 property.options.add(0, Option(false, 0, "other", property.id, "other"))
 

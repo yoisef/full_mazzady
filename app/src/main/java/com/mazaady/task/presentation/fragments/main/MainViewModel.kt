@@ -18,14 +18,14 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(private val mainRepo: MainRepo) : ViewModel() {
 
 
-    private val _getMainCategories: MutableSharedFlow<Resource<MainResponse<CatData>>> = MutableSharedFlow(replay = 0, extraBufferCapacity = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
-    val getMainCategories :SharedFlow<Resource<MainResponse<CatData>>> =_getMainCategories
+    private val _getMainCategories: MutableStateFlow<Resource<MainResponse<CatData>>> =  MutableStateFlow(Resource.error(null,""))
+    val getMainCategories :StateFlow<Resource<MainResponse<CatData>>> =_getMainCategories
 
     private val _getProperties: MutableStateFlow<Resource<MainResponse<List<PropData>>>> = MutableStateFlow(Resource.error(null,""))
     val getProperties :StateFlow<Resource<MainResponse<List<PropData>>>> =_getProperties
 
-    private val _getOptionsChild: MutableSharedFlow<Resource<MainResponse<List<PropData>>>> = MutableSharedFlow(replay = 0, extraBufferCapacity = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
-    val getOptionsChild :SharedFlow<Resource<MainResponse<List<PropData>>>> =_getOptionsChild
+    private val _getOptionsChild: MutableStateFlow<Resource<MainResponse<List<PropData>>>> = MutableStateFlow(Resource.error(null,""))
+    val getOptionsChild :StateFlow<Resource<MainResponse<List<PropData>>>> =_getOptionsChild
 
     fun getMainCategories()
     {

@@ -63,8 +63,17 @@ class Property2Adapter @Inject constructor (var properties: ArrayList<PropData>,
 
         fun bind(propertyDetails: PropData) {
 
-            binding.propertyName.text = propertyDetails.slug
-            binding.propertyValue.text= propertyDetails.selectedOption?.slug
+            if (propertyDetails.selectedOption?.slug=="other")
+            {
+                binding.propertyName.text = propertyDetails.slug
+
+                binding.propertyValue.text= propertyDetails.other_value
+
+            }else{
+                binding.propertyName.text = propertyDetails.slug
+                binding.propertyValue.text= propertyDetails.selectedOption?.slug
+
+            }
 
 
 

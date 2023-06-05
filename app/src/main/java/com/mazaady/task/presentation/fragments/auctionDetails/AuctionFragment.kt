@@ -1,5 +1,7 @@
 package com.mazaady.task.presentation.fragments.auctionDetails
 
+import android.R
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +12,12 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mazaady.task.adapters.BiddersAdapter
 import com.mazaady.task.adapters.ProductAdapter
+import com.mazaady.task.adapters.SliderAdapter
 import com.mazaady.task.databinding.FragmentAuctionDetailsBinding
 import com.mazaady.task.presentation.fragments.main.MainViewModel
+import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType
+import com.smarteist.autoimageslider.SliderAnimations
+import com.smarteist.autoimageslider.SliderView
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -38,6 +44,7 @@ class AuctionFragment : Fragment() {
 
 
         setupBiddersRecyclerView()
+        setupSlider()
 
         return binding.root
     }
@@ -52,6 +59,27 @@ class AuctionFragment : Fragment() {
         productAdapters = context?.let { ProductAdapter(it) }!!
         binding.productsRecycle.adapter =productAdapters
 
+    }
+
+    private fun setupSlider()
+    {
+
+
+        val adapter = context?.let { SliderAdapter(it) }
+
+        if (adapter != null) {
+            binding.imageSlider.setSliderAdapter(adapter)
+        }
+
+        binding.imageSlider.setIndicatorAnimation(IndicatorAnimationType.WORM) //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+
+        binding.imageSlider.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION)
+        binding.imageSlider.autoCycleDirection = SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH
+        binding.imageSlider.indicatorSelectedColor = Color.WHITE
+        binding.imageSlider.indicatorUnselectedColor = Color.GRAY
+        binding.imageSlider.scrollTimeInSec = 4 //set scroll delay in seconds :
+
+        binding.imageSlider.startAutoCycle()
     }
 
 

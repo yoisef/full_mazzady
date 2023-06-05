@@ -46,8 +46,8 @@ class Property1Adapter @Inject constructor (var properties: ArrayList<PropData>,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Log.e("selectedopion", "==" + (properties[position].selectedOption?.slug))
-        val city = properties[position]
-        holder.bind(city)
+        val prope = properties[position]
+        holder.bind(prope)
 
 
     }
@@ -120,13 +120,14 @@ class Property1Adapter @Inject constructor (var properties: ArrayList<PropData>,
                 }
 
 
-                if (propertyDetails.selectedOption!!.name.equals("other")) {
+
+                if (propertyDetails.selectedOption!!.name == "other") {
                     binding.inputLayoutOther.visibility = View.VISIBLE
                     binding.inputEditTextOther.requestFocus()
 
                     binding.inputEditTextOther.addTextChangedListener(object : TextWatcher {
                         override fun afterTextChanged(s: Editable?) {
-                            propertyDetails.selectedOption?.slug  =s.toString()
+                            propertyDetails.other_value=s.toString()
                         }
 
                         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -141,6 +142,8 @@ class Property1Adapter @Inject constructor (var properties: ArrayList<PropData>,
                     binding.inputLayoutOther.visibility = View.GONE
 
                 }
+
+
 
 
             }else{
